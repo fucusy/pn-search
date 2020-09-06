@@ -3,7 +3,7 @@
 
 #include "coords.h"
 #include "simple_board.h"
-
+#include <stdexcept>
 #include <cstdint>
 #include <array>
 #include "parameters.h"

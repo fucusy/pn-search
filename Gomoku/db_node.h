@@ -8,7 +8,7 @@
 #include <vector>
 #include "threat_finder.h"
 #include "bit_board.h"
-
+#include <algorithm>
 
 class db_node;
 

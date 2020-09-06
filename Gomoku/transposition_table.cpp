@@ -1,6 +1,6 @@
 #include "transposition_table.h"
 #include "simple_board.h"
-
+#include <stdexcept>
 
 #ifdef _DEBUG
 

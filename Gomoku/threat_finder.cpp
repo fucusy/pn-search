@@ -1,7 +1,7 @@
 ﻿#include "threat_finder.h"
 #include "board_list_selector.h"
-
-
+#include <algorithm>
+#include <iterator>
 using namespace std;
 
 
