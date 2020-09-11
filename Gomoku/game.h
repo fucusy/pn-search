@@ -3,6 +3,8 @@
 
 #include "pn_search.h"
 #include "log_board.h"
+#include "abstract_ui.h"
+#include "console_ui.h"
 
 #include <memory>
 
@@ -24,6 +26,7 @@ public:
         human_on_move_ = human_start;
         move_counter_ = 0;
         engine_ = std::make_unique<pn_search>();
+        ui_ = std::make_unique<console_ui>();
 	}
 	
 	// initializes moves from a file
@@ -35,6 +38,7 @@ public:
 private:
 	log_board board_;
 	std::unique_ptr<abstract_engine> engine_;
+    std::unique_ptr<abstract_ui> ui_;
 	figure current_player_;
 	bool human_on_move_;
 	coords last_move_;
