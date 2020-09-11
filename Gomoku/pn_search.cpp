@@ -66,6 +66,7 @@ void pn_search::search() {
 
 		if(root_.subtree_size() % 1000 == 0){
 		    std::cout << root_.subtree_size() << " / " << parameters::PN_SEARCH_SIZE_LIMIT_ << std::endl;
+		    std::cout << root_.subtree_size() * 1.0 / parameters::PN_SEARCH_SIZE_LIMIT_ << std::endl;
 		}
 		pn_node& mostProvingNode = select_most_proving();
 		develop_node(mostProvingNode);

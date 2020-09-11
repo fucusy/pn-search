@@ -10,5 +10,5 @@ const size_t parameters::PN_SEARCH_SIZE_LIMIT_ = 10000; // 10k, limits of the si
 #elif TEST
 const size_t parameters::PN_SEARCH_SIZE_LIMIT_ = 100000000; // 100M, limits of the size of the tree
 #else
-const size_t parameters::PN_SEARCH_SIZE_LIMIT_ = 300000; // 400k, limits of the size of the tree
+const size_t parameters::PN_SEARCH_SIZE_LIMIT_ = 10L * 1000 * 1000 * 1000; // 10B, limits of the size of the tree
 #endif
