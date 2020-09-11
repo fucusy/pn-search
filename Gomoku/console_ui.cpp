@@ -15,15 +15,12 @@ using namespace std;
 // with a warning message
 
 coords console_ui::read_next_move(const simple_board& board, const string& message) {
-	SetConsoleCursorPosition(hConsole, { 0, 35 });
-	SetConsoleTextAttribute(hConsole, 7); // light gray
 
 	clear_console(last_answer_length);
 	cout << endl << "     " << message << endl << endl;
 	cout << endl << "     next move: "; 
 	clear_console(last_answer_length);
 
-	SetConsoleTextAttribute(hConsole, 15); // default white colour
 	string answer;
 	cin >> answer;
 
@@ -64,9 +61,7 @@ void console_ui::clear_console(size_t number_of_chars) {
 void console_ui::render(const simple_board& board, coords last_move, bool show_winning_line) {
 	system("cls");
 
-	SetConsoleTextAttribute(hConsole, 7); // light gray
 	cout << endl << "     a b c d e f g h i j k l m n o" << endl;
-	SetConsoleTextAttribute(hConsole, 8); // dark grey
 
 	// first row: ┌─┬─┬─ ...
 
@@ -79,10 +74,8 @@ void console_ui::render(const simple_board& board, coords last_move, bool show_w
 
 		// even row: 12 │ │X│O│ │O ...
 
-		SetConsoleTextAttribute(hConsole, 7); // light gray
 		if (y <= 8) cout << "  " << y + 1 << " ";
 		else cout << " " << y + 1 << " ";
-		SetConsoleTextAttribute(hConsole, 8); // dark grey
 
 		for (int x = 0; x < constants::BOARD_SIZE; ++x) {
 			cout << char(179);
@@ -94,8 +87,8 @@ void console_ui::render(const simple_board& board, coords last_move, bool show_w
 
 			switch (board.get_move(x, y)) {
 				case NONE: cout << " "; break;
-				case BLACK: SetConsoleTextAttribute(hConsole, highlight ? 0xC0 : 0x0C); cout << "X"; SetConsoleTextAttribute(hConsole, 8); break;
-				case WHITE: SetConsoleTextAttribute(hConsole, highlight ? 0xB0 : 0x0B); cout << "O"; SetConsoleTextAttribute(hConsole, 8); break;
+				case BLACK: cout << "X"; break;
+				case WHITE: cout << "O"; break;
 			}
 		}
 		cout << char(179) << endl;
@@ -115,6 +108,8 @@ void console_ui::render(const simple_board& board, coords last_move, bool show_w
 	for (int x = 0; x < 14; ++x)
 		cout << char(193) << char(196);
 	cout << char(217) << endl;
-
-	SetConsoleTextAttribute(hConsole, 15); // default white colour
 }
+
+console_ui::~console_ui(void)  {
+    cout << "Object is being deleted" << endl;
+};

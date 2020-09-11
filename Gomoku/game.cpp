@@ -32,21 +32,15 @@ void game::run() {
 		if(human_on_move_) {
 			if(move_counter_ == 0) next_move = ui_->read_next_move(board_, "it's your turn");
 			else next_move = ui_->read_next_move(board_, "AI played " + last_move_.to_string() + ", it's your turn");
-
-			board_.place_move(next_move, current_player_);
-			change_player();
-			engine_->set_next_move(next_move);
 		}
-
 		// if computer is on move, calculate his next move and place it on board
 		else {
 			next_move = engine_->get_response();
-
 			if (next_move.is_out_of_board() || !board_.is_empty(next_move)) throw std::runtime_error("engine played incorrect move");
-			board_.place_move(next_move, current_player_);
-			change_player();
-			engine_->set_next_move(next_move);
 		}
+        board_.place_move(next_move, current_player_);
+        change_player();
+        engine_->set_next_move(next_move);
 
 		last_move_ = next_move;
 		++move_counter_;

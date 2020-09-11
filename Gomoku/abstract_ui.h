@@ -21,7 +21,7 @@ public:
 	// shows game over screen after one of the players wins
 	virtual void show_winning_screen(const simple_board& board, bool human_win) = 0;
 
-	virtual ~abstract_ui() {}
+	virtual ~abstract_ui() = 0;
 };
 
 #endif

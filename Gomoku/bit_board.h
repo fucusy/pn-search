@@ -14,6 +14,8 @@ using bit_lines = std::array<uint32_t, 4>;
 
 /* BIT BOARD
  *
+ * https://spin.atomicobject.com/2017/07/08/game-playing-ai-bitboards/
+ *
  * Data structure representing the 15x15 board, with functions for adding and retrieving pieces from board.
  * 
  * This data-structure isn't implemented in the most obvious way as a 2D array of figures, but it is implemented

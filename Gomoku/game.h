@@ -20,8 +20,13 @@
 class game {
 public:
 	// creates a new game 
-	explicit game(bool human_start) : ui_(std::make_unique<console_ui>()), engine_(std::make_unique<pn_search>()), 
-									  current_player_(BLACK), human_on_move_(human_start), move_counter_(0) {}
+	explicit game(bool human_start)  {
+        current_player_ = BLACK;
+        human_on_move_ = human_start;
+        move_counter_ = 0;
+        engine_ = std::make_unique<pn_search>();
+        ui_ = std::make_unique<console_ui>();
+	}
 	
 	// initializes moves from a file
 	void init(const std::string& filename);
