@@ -79,7 +79,7 @@ public:
 	}
 
 	// converts the relative offsets from $base in a $direction to an absolute position
-	static positions_bundle dependency_eval::offsets_to_positions(const response& offsets, coords base, direction dir);
+	static positions_bundle offsets_to_positions(const response& offsets, coords base, direction dir);
 	
 private:
 

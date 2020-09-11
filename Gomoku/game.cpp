@@ -22,21 +22,21 @@ void game::init(const string& filename) {
 // starts the game
 void game::run() {
 
-	ui_->render(board_); // render the initial board
-
 	while(true) {
 		
 		coords next_move;
 
 		// if human is on move, read his next move and place it on board
 		if(human_on_move_) {
-			if(move_counter_ == 0) next_move = ui_->read_next_move(board_, "it's your turn");
-			else next_move = ui_->read_next_move(board_, "AI played " + last_move_.to_string() + ", it's your turn");
+		    next_move = coords(7, 8);
 		}
 		// if computer is on move, calculate his next move and place it on board
 		else {
 			next_move = engine_->get_response();
 			if (next_move.is_out_of_board() || !board_.is_empty(next_move)) throw std::runtime_error("engine played incorrect move");
+            if(move_counter_ > 0){
+                exit(0);
+            }
 		}
         board_.place_move(next_move, current_player_);
         change_player();
@@ -44,13 +44,6 @@ void game::run() {
 
 		last_move_ = next_move;
 		++move_counter_;
-
-		if (board_.is_winning(next_move)) {
-			ui_->show_winning_screen(board_, !human_on_move_);
-			return;
-		} else {
-			ui_->render(board_, last_move_);
-		}
 	}
 }
 

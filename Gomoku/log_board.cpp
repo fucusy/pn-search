@@ -13,8 +13,6 @@ using namespace std;
 log_board::log_board() {
 	auto t = time(nullptr);
 	tm time;
-	localtime_s(&time, &t);
-
 	ostringstream oss;
 	oss << put_time(&time, "%d-%m-%Y %H-%M-%S");
 	auto date_string = oss.str();
