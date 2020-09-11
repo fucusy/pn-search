@@ -34,6 +34,7 @@ void game::run() {
 		else {
 			next_move = engine_->get_response();
 			if (next_move.is_out_of_board() || !board_.is_empty(next_move)) throw std::runtime_error("engine played incorrect move");
+			printf("AI select: %s\n", next_move.to_string().c_str());
             if(move_counter_ > 0){
                 exit(0);
             }
