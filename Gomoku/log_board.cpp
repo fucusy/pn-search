@@ -14,8 +14,8 @@ log_board::log_board() {
 	auto t = time(nullptr);
 	tm time;
 	ostringstream oss;
-	oss << put_time(&time, "%d-%m-%Y %H-%M-%S");
+	oss << put_time(&time, "%d-%m-%Y-%H-%M-%S");
 	auto date_string = oss.str();
 
-	ofs = ofstream("log\\" + date_string + ".log");
+	ofs = ofstream("log/" + date_string + ".log");
 }

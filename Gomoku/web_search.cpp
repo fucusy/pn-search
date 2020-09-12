@@ -69,11 +69,11 @@ int main(int argc, char** argv) { // the optional console arguments is a path to
 }
 **/
 
+#if defined(WEB)
 int main(int argc, char** argv) { // the optional console arguments is a path to a logged game file for debug purposes
     char* query = getenv("QUERY_STRING");
     cout << "Content-Type: application/json" << endl;
     cout << endl;
-
     srand(unsigned(time(nullptr))); // initialize random number generator
     string steps_str = parse_parameter(query, "stepsString");
     vector<string> steps;
@@ -86,3 +86,4 @@ int main(int argc, char** argv) { // the optional console arguments is a path to
     auto next_move = g.engine_->get_response();
 	cout << "{\"x\":" << std::to_string(next_move.x) <<",\"y\":" << std::to_string(next_move.y) << "}" << endl;
 }
+#endif

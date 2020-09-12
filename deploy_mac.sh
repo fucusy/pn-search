@@ -1,5 +1,5 @@
 sudo cp -r ./Web/* /Library/WebServer/Documents/gomoku/
 cd Gomoku
 rm web_search.cgi
-g++  *.cpp -o web_search.cgi -std=c++17
+g++  *.cpp -o web_search.cgi -std=c++17 -DWEB
 cp web_search.cgi /Library/WebServer/CGI-Executables/

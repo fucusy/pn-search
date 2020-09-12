@@ -1,13 +1,17 @@
 #include "game.h"
 
 #include <ctime>
+#include <iostream>
 
 
 using namespace std;
 
-/**
+#if defined(CLI)
 int main(int argc, char** argv) { // the optional console arguments is a path to a logged game file for debug purposes
 	srand(unsigned(time(nullptr))); // initialize random number generator
+	#if defined(TEST)
+	std::cout << "TEST defined" << endl;
+    #endif
 
 	bool player_starts = false; // ai starts the first game	
 	while(true) {
@@ -18,4 +22,4 @@ int main(int argc, char** argv) { // the optional console arguments is a path to
 		player_starts = !player_starts; // change the player who starts
 	}
 }
- **/
+#endif
