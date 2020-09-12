@@ -1,5 +1,5 @@
 #include "game.h"
-
+#include <vector>
 
 using namespace std;
 
@@ -9,14 +9,23 @@ void game::init(const string& filename) {
 	auto ifs = ifstream(filename);
 
 	string word;
+    vector<string> history;
 	while(ifs >> word) {
-		coords next_move; 
-		if (!coords::try_parse(word, next_move)) throw runtime_error(word + " is invalid, coordinates expected");
-
-		board_.place_move(next_move, current_player_);
-		change_player();
-		engine_->set_next_move(next_move);
+	    history.push_back(word);
 	}
+	this->init(history);
+}
+
+void game::init(vector<string> history) {
+    for(int i = 0; i < history.size(); i++) {
+        string word = history[i];
+        coords next_move;
+        if (!coords::try_parse(word, next_move)) throw runtime_error(word + " is invalid, coordinates expected");
+
+        board_.place_move(next_move, current_player_);
+        change_player();
+        engine_->set_next_move(next_move);
+    }
 }
 
 // starts the game

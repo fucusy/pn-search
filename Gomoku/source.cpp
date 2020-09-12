@@ -5,7 +5,7 @@
 
 using namespace std;
 
-
+/**
 int main(int argc, char** argv) { // the optional console arguments is a path to a logged game file for debug purposes
 	srand(unsigned(time(nullptr))); // initialize random number generator
 
@@ -18,3 +18,4 @@ int main(int argc, char** argv) { // the optional console arguments is a path to
 		player_starts = !player_starts; // change the player who starts
 	}
 }
+ **/

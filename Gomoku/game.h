@@ -31,11 +31,12 @@ public:
 	
 	// initializes moves from a file
 	void init(const std::string& filename);
-	
+    void init(std::vector<std::string> history);
+
 	// starts the game
 	void run();
 
-private:
+//private:
 	log_board board_;
 	std::unique_ptr<abstract_engine> engine_;
     std::unique_ptr<abstract_ui> ui_;
